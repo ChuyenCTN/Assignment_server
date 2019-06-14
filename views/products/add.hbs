@@ -1,0 +1,46 @@
+<div class="shadow-sm p-4 mb-4 bg-white" style="width: 50%; padding: 0.5%; margin: auto; margin-top:2%">
+  <form action="/products/save-add" , method="POST" enctype="multipart/form-data">
+    <h4 style="width: 30% ;margin: auto; text-align: center; margin-top: 1%; margin-bottom: 2%">Add Product</h4>
+
+    <div class="form-group">
+      <label>Name Product</label>
+      <input type="text" class="form-control" id="name_product" placeholder="Name" name="name_pr">
+    </div>
+    <div class="form-group">
+      <label>ID Category</label>
+      <select class="form-control" name="cateid_pr" id="select_cateid_pr">
+        {{#each cates}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Image file input</label>
+      <input type="file" class="form-control-file" id="img_file_input" name="image_pr">
+    </div>
+    <div class="form-group">
+      <label>Price Product (đ)</label>
+      <input type="number" class="form-control" id="price_product" placeholder="Price" name="price_pr">
+    </div>
+    <div class="form-group">
+      <label for="text_detall">Detall</label>
+      <textarea class="form-control" id="text_detall" rows="3" name="detall_pr"></textarea>
+    </div>
+    <div style="text-align: end">
+      <button type="submit" class="btn btn-primary">Add</button>
+      <a class="btn btn-danger" role="button" aria-pressed="true" href="/" data-toggle="modal"
+        style="color: cornsilk">Cancel</a>
+    </div>
+  </form>
+</div>
+
+{{!-- <script>
+        var select = document.getElementById("select_cateid_pr");
+        arr = ["jkgsd", "gsdfgjk"];
+        for (var i = 0; i < arr.length; i++) {
+          var option = document.createElement("OPTION"),
+            txt = document.createTextNode(arr[i]);
+          option.appendChild(txt);
+          select.insertBefore(option, select.lastChild);
+        }
+      </script> --}}

@@ -1,0 +1,25 @@
+<div class="shadow-sm p-4 mb-4 bg-white" style="width: 50%; padding: 0.5%; margin: auto; margin-top: 2%">
+  <form action="/cates/save-edit" method="POST" enctype="multipart/form-data">
+    <h4 style="width: 30% ;margin: auto; text-align: center; margin-top: 1%; margin-bottom: 2%">Edit Categories</h4>
+    <input type="hidden" name="id" value="{{cates._id}}">
+    <div class="form-group">
+      <label>Name Category</label>
+      <input type="text" class="form-control" placeholder="Name" value="{{cates.name}}" name="name">
+    </div>
+    <div class="form-group">
+      <label>Image file input</label>
+      <div style="width: 200px; margin-bottom: 1%">
+      <img src="{{cates.image}}" class="img-thumbnail"></image></div>
+      <input type="file" class="form-control-file" id="img_file_input" name="image">
+    </div>
+    <div class="form-group">
+      <label for="text_description">Description Category</label>
+      <textarea class="form-control" id="text_description" rows="3" name="description"
+        style="text-align: start">{{cates.description}}</textarea>
+    </div>
+    <div style="text-align: end">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a class="btn btn-danger" role="button" aria-pressed="true" href="/cates" data-toggle="modal"
+        style="color: cornsilk">Cancel</a>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="shadow-sm p-4 mb-4 bg-white" style="width: 50%; padding: 0.5%; margin: auto; margin-top: 2%">
+  <form action="/products/save-edit" method="POST" enctype="multipart/form-data">
+
+    <h4 style="width: 30% ;margin: auto; text-align: center; margin-top: 1%; margin-bottom: 2%">Edit Product</h4>
+    <input type="hidden" name="id" value="{{products._id}}">
+    <div class="form-group">
+      <label>Name Product</label>
+      <input type="text" class="form-control" name="name_pr" placeholder="Name" value="{{products.name}}">
+    </div>
+    <div class="form-group">
+      <label>ID Category</label>
+           <select name="cateid_pr" class="form-control">
+                    {{#each cates}}
+                        <option value="{{this._id}}"
+                            {{#if selected}}
+                                selected
+                            {{/if}}
+                        >{{this.name}}</option>
+                    {{/each}}
+                    </select>
+    </div>
+    <div class="form-group">
+      <label>Image file input</label>
+      <div style="width: 200px; margin-bottom: 1%">
+        <img src="{{products.image}}" class="img-thumbnail"></image>
+      </div>
+      <input type="file" class="form-control-file" name="image_pr">
+    </div>
+    <div class="form-group">
+      <label>Price Product (đ)</label>
+      <input type="number" class="form-control" name="price_pr" placeholder="Price" value={{products.price}}>
+    </div>
+    <div class="form-group">
+      <label for="text_detall">Detall</label>
+      <textarea class="form-control" name="detall_pr" rows="3">{{products.detall}} </textarea>
+    </div>
+    <div style="text-align: end">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a class="btn btn-danger" role="button" aria-pressed="true" href="/" data-toggle="modal"
+        style="color: cornsilk">Cancel</a>
+  </form>
+</div>

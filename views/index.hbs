@@ -1,0 +1,138 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+            alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Products </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cates">Category</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="./products/add" class="btn btn-outline-success" role="button" aria-pressed="true">New
+                Product</a>
+        </form>
+    </div>
+</nav>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th style="width: 0.1%" scope="col"></th>
+            <th style="width: 30%" scope="col">Name</th>
+            <th style="width: 5%" scope="col">Image</th>
+
+            <th style="width: 5%" scope="col">Categories</th>
+            <th style="width: 8%" scope="col">Price (đ)</th>
+            <th style="width: 33%" scope="col">Detall</th>
+            <th style="width: 5%" scope="col"></th>
+            <th style="width: 5%" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <th scope="row"></th>
+            <td><a style="margin-left: 1%">{{this.name}}</a></td>
+            <td><img src="{{this.image}}" width="100" class="img-thumbnail"> </td>
+            <td><a style="margin-left: 1%">{{this.cate_id}}</a></td>
+            <td><a style="margin-left: 1%">{{this.price}}</a></td>
+            <td><a style="margin-left: 1%">{{this.detall}}</a>
+            </td>
+            <td><a class="btn btn-secondary btn-sm" role="button" aria-pressed="true"
+                    href="./products/edit/{{this._id}}" style="color: cornsilk">Edit</a></td>
+            <td><a  class="btn btn-danger btn-sm" role="button" aria-pressed="true" href="./products/remove"
+                    style="color: cornsilk; margin-right: 1%">Delete</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<div class="modal fade" id="alert" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Please confirm!</h5><button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure delete this product?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="alert_edit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Product edit</h5><button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <div style="width: 100%; padding: 0.5%; margin: auto">
+                    <form>
+                        <div class="form-group">
+                            <label>ID Product</label>
+                            <input type="text" class="form-control" id="id_product" placeholder="DT1" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Name Product</label>
+                            <input type="text" class="form-control" id="name_product" placeholder="Name"
+                                value="Điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <label>ID Category</label>
+                            <select class="form-control">
+                                <option>DT</option>
+                                <option>LT</option>
+                                <option>TB</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Image file input</label>
+                            <input type="file" class="form-control-file" id="img_file_input">
+                        </div>
+                        <div class="form-group">
+                            <label>Price Product (vnđ)</label>
+                            <input type="number" class="form-control" id="price_product" placeholder="Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="text_detall">Detall</label>
+                            <textarea class="form-control" id="text_detall" rows="3"></textarea>
+                        </div>
+                        <div style="text-align: end">
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

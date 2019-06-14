@@ -1,0 +1,14 @@
+<div class="shadow-sm p-4 mb-4 bg-white rounded" style="width: 50%; padding: 0.5%; margin: auto;margin-top: 10%;">
+    <form action="/cates/remove-cate" >
+        <input type="hidden" name="id" value="{{cates._id}}">
+        <h4 style="width: 50% ;margin: auto; text-align: center; margin-top: 1%; margin-bottom: 2%">Categories remove
+        </h4>
+        <p style="font-size: 20px;text-align: start; margin-left: 10%; margin-top: 5%; margin-bottom: 10%">Are you sure
+            delete {{cates.name}} category?</p>
+        <div style="text-align: center">
+            <button type="submit" class="btn btn-danger" style="color: cornsilk">Delete</button>
+            <a class="btn btn-secondary" role="button" aria-pressed="true" href="/cates"
+                style="color: cornsilk">Cancle</a>
+    </form>
+
+</div>
